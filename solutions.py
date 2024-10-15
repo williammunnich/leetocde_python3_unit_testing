@@ -3,15 +3,29 @@ from typing import List
 class Solutions:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         """
-        Function to find two indices such that nums[i] + nums[j] == target.
+        Problem 1: Two Sum
+        
+        Problem Description:
+        Given an array of integers `nums` and an integer `target`, return the indices of the two numbers 
+        such that they add up to `target`. You may assume that there is exactly one solution, and 
+        you may not use the same element twice. The indices can be returned in any order.
+
+        Example 1:
+        Input: nums = [2, 7, 11, 15], target = 9
+        Output: [0, 1]
+        Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+        Example 2:
+        Input: nums = [3, 2, 4], target = 6
+        Output: [1, 2]
+        Explanation: Because nums[1] + nums[2] == 6, we return [1, 2].
+
+        Constraints:
+        - The length of `nums` is between 2 and 10^4.
+        - Each integer in `nums` is between -10^9 and 10^9.
+        - There is exactly one valid solution for each input.
         """
-        lookup = {}
-        for i, num in enumerate(nums):
-            diff = target - num
-            if diff in lookup:
-                return [lookup[diff], i]
-            lookup[num] = i
-        return [] 
+        raise NotImplementedError("subtract function not yet implemented")
     
     class ListNode:
         def __init__(self, val=0, next=None):
@@ -20,37 +34,64 @@ class Solutions:
 
     def addTwoNumbers(self, l1: 'Solutions.ListNode', l2: 'Solutions.ListNode') -> 'Solutions.ListNode':
         """
-        Function to add two numbers represented by linked lists.
+        Problem 2: Add Two Numbers
+        
+        Problem Description:
+        You are given two non-empty linked lists representing two non-negative integers. 
+        The digits are stored in reverse order, and each of their nodes contains a single digit. 
+        Add the two numbers and return the sum as a linked list.
+        
+        Example 1:
+        Input: l1 = [2, 4, 3], l2 = [5, 6, 4]
+        Output: [7, 0, 8]
+        Explanation: 342 + 465 = 807.
+
+        Example 2:
+        Input: l1 = [0], l2 = [0]
+        Output: [0]
+
+        Example 3:
+        Input: l1 = [9, 9, 9, 9, 9, 9, 9], l2 = [9, 9, 9, 9]
+        Output: [8, 9, 9, 9, 0, 0, 0, 1]
+        
+        Constraints:
+        - The number of nodes in each linked list is between 1 and 100.
+        - Each node contains an integer between 0 and 9.
         """
-        dummy = self.ListNode()  # Dummy node to simplify result list construction
-        current = dummy
-        carry = 0
-
-        while l1 or l2 or carry:
-            # Get the current values, default to 0 if l1 or l2 is None
-            val1 = l1.val if l1 else 0
-            val2 = l2.val if l2 else 0
-
-            # Calculate the sum and carry
-            total = val1 + val2 + carry
-            carry = total // 10
-            current.next = self.ListNode(total % 10)
-
-            # Move to the next nodes
-            current = current.next
-            if l1:
-                l1 = l1.next
-            if l2:
-                l2 = l2.next
-
-        return dummy.next  # Return the actual result, skipping the dummy node
+        raise NotImplementedError("subtract function not yet implemented")
     
     def lengthOfLongestSubstring(self, s: str) -> int:
+        """
+        3. Longest Substring Without Repeating Characters
+        Medium
+
+        Given a string s, find the length of the longest substring without repeating characters.
+
+        Example 1:
+        Input: s = "abcabcbb"
+        Output: 3
+        Explanation: The answer is "abc", with the length of 3.
+
+        Example 2:
+        Input: s = "bbbbb"
+        Output: 1
+        Explanation: The answer is "b", with the length of 1.
+
+        Example 3:
+        Input: s = "pwwkew"
+        Output: 3
+        Explanation: The answer is "wke", with the length of 3. Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+        Constraints:
+        - 0 <= s.length <= 5 * 10^4
+        - s consists of English letters, digits, symbols and spaces.
+        """
         # Implementation will go here
         raise NotImplementedError("subtract function not yet implemented")
     
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         """
+        Number 4.
         Given two sorted arrays nums1 and nums2 of size m and n respectively,
         return the median of the two sorted arrays. The overall run time
         complexity should be O(log (m+n)).
