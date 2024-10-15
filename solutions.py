@@ -31,7 +31,6 @@ class Solutions:
         def __init__(self, val=0, next=None):
             self.val = val
             self.next = next
-
     def addTwoNumbers(self, l1: 'Solutions.ListNode', l2: 'Solutions.ListNode') -> 'Solutions.ListNode':
         """
         Problem 2: Add Two Numbers
@@ -116,3 +115,23 @@ class Solutions:
         """
         # TODO: Implement the algorithm here
         raise NotImplementedError("Solution not yet implemented")
+    
+    def longestPalindrome(self, s: str) -> str:
+        """
+        This method returns the longest palindromic substring of a given string `s`.
+
+        A palindrome is a string that reads the same forward and backward.
+
+        Args:
+        s: A string consisting of digits and English letters, where 1 <= len(s) <= 1000.
+
+        Returns:
+        A substring of `s` that is the longest palindrome.
+
+        Constraints:
+        - The input string's length is between 1 and 1000.
+        - The string only contains digits and English letters (both uppercase and lowercase).
+        
+        Note: Raise NotImplementedError until the function is implemented.
+        """
+        raise NotImplementedError("Function longestPalindrome is not yet implemented.")

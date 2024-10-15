@@ -60,14 +60,14 @@ class test_prob1(unittest.TestCase):
     - There is exactly one valid solution for each input.
     """
     def setUp(self):
-        self.solution = Solutions()
+        self.solutions = Solutions()
 
     def test_twoSum_example1(self):
         try:
             nums = [2, 7, 11, 15]
             target = 9
             expected_output = [0, 1]
-            result = self.solution.twoSum(nums, target)
+            result = self.solutions.twoSum(nums, target)
             self.assertEqual(result, expected_output)
         except NotImplementedError as e:
             self.skipTest(str(e))  # Skip test if NotImplementedError is raised
@@ -77,7 +77,7 @@ class test_prob1(unittest.TestCase):
             nums = [3, 2, 4]
             target = 6
             expected_output = [1, 2]
-            result = self.solution.twoSum(nums, target)
+            result = self.solutions.twoSum(nums, target)
             self.assertEqual(result, expected_output)
         except NotImplementedError as e:
             self.skipTest(str(e))
@@ -87,7 +87,7 @@ class test_prob1(unittest.TestCase):
             nums = [3, 3]
             target = 6
             expected_output = [0, 1]
-            result = self.solution.twoSum(nums, target)
+            result = self.solutions.twoSum(nums, target)
             self.assertEqual(result, expected_output)
         except NotImplementedError as e:
             self.skipTest(str(e))
@@ -97,7 +97,7 @@ class test_prob1(unittest.TestCase):
             nums = [i for i in range(1, 10001)]
             target = 19999
             expected_output = [9998, 9999]  # 9999 + 10000 == 19999
-            result = self.solution.twoSum(nums, target)
+            result = self.solutions.twoSum(nums, target)
             self.assertEqual(result, expected_output)
         except NotImplementedError as e:
             self.skipTest(str(e))
@@ -130,31 +130,37 @@ class test_prob2(unittest.TestCase):
     - Each node contains an integer between 0 and 9.
     """
     def setUp(self):
-        self.solution = Solutions()
+        self.solutions = Solutions()
 
     def list_to_linkedlist(self, numbers):
         """Helper function to convert a list to a linked list."""
-        dummy = self.solution.ListNode()  # Using ListNode inside Solution
-        current = dummy
-        for num in numbers:
-            current.next = self.solution.ListNode(num)
-            current = current.next
-        return dummy.next
+        try:
+            dummy = self.solution.ListNode()  # Using ListNode inside Solution
+            current = dummy
+            for num in numbers:
+                current.next = self.solutions.ListNode(num)
+                current = current.next
+            return dummy.next
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def linkedlist_to_list(self, node):
         """Helper function to convert a linked list to a list."""
-        result = []
-        while node:
-            result.append(node.val)
-            node = node.next
-        return result
+        try:
+            result = []
+            while node:
+                result.append(node.val)
+                node = node.next
+            return result
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def test_addTwoNumbers_example1(self):
         try:
             l1 = self.list_to_linkedlist([2, 4, 3])
             l2 = self.list_to_linkedlist([5, 6, 4])
             expected_output = [7, 0, 8]
-            result = self.solution.addTwoNumbers(l1, l2)
+            result = self.solutions.addTwoNumbers(l1, l2)
             result_list = self.linkedlist_to_list(result)
             self.assertEqual(result_list, expected_output)
         except NotImplementedError as e:
@@ -165,7 +171,7 @@ class test_prob2(unittest.TestCase):
             l1 = self.list_to_linkedlist([0])
             l2 = self.list_to_linkedlist([0])
             expected_output = [0]
-            result = self.solution.addTwoNumbers(l1, l2)
+            result = self.solutions.addTwoNumbers(l1, l2)
             result_list = self.linkedlist_to_list(result)
             self.assertEqual(result_list, expected_output)
         except NotImplementedError as e:
@@ -176,7 +182,7 @@ class test_prob2(unittest.TestCase):
             l1 = self.list_to_linkedlist([9, 9, 9, 9, 9, 9, 9])
             l2 = self.list_to_linkedlist([9, 9, 9, 9])
             expected_output = [8, 9, 9, 9, 0, 0, 0, 1]
-            result = self.solution.addTwoNumbers(l1, l2)
+            result = self.solutions.addTwoNumbers(l1, l2)
             result_list = self.linkedlist_to_list(result)
             self.assertEqual(result_list, expected_output)
         except NotImplementedError as e:
@@ -208,54 +214,69 @@ class test_prob2(unittest.TestCase):
     - Each node contains an integer between 0 and 9.
     """
     def setUp(self):
-        self.solution = Solutions()
+        self.solutions = Solutions()
 
     def list_to_linkedlist(self, numbers):
         """Helper function to convert a list to a linked list."""
-        dummy = self.solution.ListNode()  # Using ListNode inside Solution
-        current = dummy
-        for num in numbers:
-            current.next = self.solution.ListNode(num)
-            current = current.next
-        return dummy.next
+        try:
+            dummy = self.solutions.ListNode()  # Using ListNode inside Solution
+            current = dummy
+            for num in numbers:
+                current.next = self.solutions.ListNode(num)
+                current = current.next
+            return dummy.next
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def linkedlist_to_list(self, node):
         """Helper function to convert a linked list to a list."""
-        result = []
-        while node:
-            result.append(node.val)
-            node = node.next
-        return result
+        try:
+            result = []
+            while node:
+                result.append(node.val)
+                node = node.next
+            return result
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def test_addTwoNumbers_example1(self):
-        l1 = self.list_to_linkedlist([2, 4, 3])
-        l2 = self.list_to_linkedlist([5, 6, 4])
-        expected_output = [7, 0, 8]
-        
-        result = self.solution.addTwoNumbers(l1, l2)
-        result_list = self.linkedlist_to_list(result)
-        
-        self.assertEqual(result_list, expected_output)
+        try:
+            l1 = self.list_to_linkedlist([2, 4, 3])
+            l2 = self.list_to_linkedlist([5, 6, 4])
+            expected_output = [7, 0, 8]
+            
+            result = self.solutions.addTwoNumbers(l1, l2)
+            result_list = self.linkedlist_to_list(result)
+            
+            self.assertEqual(result_list, expected_output)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def test_addTwoNumbers_example2(self):
-        l1 = self.list_to_linkedlist([0])
-        l2 = self.list_to_linkedlist([0])
-        expected_output = [0]
-        
-        result = self.solution.addTwoNumbers(l1, l2)
-        result_list = self.linkedlist_to_list(result)
-        
-        self.assertEqual(result_list, expected_output)
+        try:
+            l1 = self.list_to_linkedlist([0])
+            l2 = self.list_to_linkedlist([0])
+            expected_output = [0]
+            
+            result = self.solutions.addTwoNumbers(l1, l2)
+            result_list = self.linkedlist_to_list(result)
+            
+            self.assertEqual(result_list, expected_output)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
 
     def test_addTwoNumbers_example3(self):
-        l1 = self.list_to_linkedlist([9, 9, 9, 9, 9, 9, 9])
-        l2 = self.list_to_linkedlist([9, 9, 9, 9])
-        expected_output = [8, 9, 9, 9, 0, 0, 0, 1]
-        
-        result = self.solution.addTwoNumbers(l1, l2)
-        result_list = self.linkedlist_to_list(result)
-        
-        self.assertEqual(result_list, expected_output)
+        try:
+            l1 = self.list_to_linkedlist([9, 9, 9, 9, 9, 9, 9])
+            l2 = self.list_to_linkedlist([9, 9, 9, 9])
+            expected_output = [8, 9, 9, 9, 0, 0, 0, 1]
+            
+            result = self.solutions.addTwoNumbers(l1, l2)
+            result_list = self.linkedlist_to_list(result)
+            
+            self.assertEqual(result_list, expected_output)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
         
         
 class test_prob3(unittest.TestCase):
@@ -286,13 +307,13 @@ class test_prob3(unittest.TestCase):
     """
 
     def setUp(self):
-        self.solution = Solutions()
+        self.solutions = Solutions()
 
     def test_example_1(self):
         s = "abcabcbb"
         expected = 3
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
 
@@ -300,7 +321,7 @@ class test_prob3(unittest.TestCase):
         s = "bbbbb"
         expected = 1
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
 
@@ -308,7 +329,7 @@ class test_prob3(unittest.TestCase):
         s = "pwwkew"
         expected = 3
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
 
@@ -316,7 +337,7 @@ class test_prob3(unittest.TestCase):
         s = ""
         expected = 0
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
 
@@ -324,7 +345,7 @@ class test_prob3(unittest.TestCase):
         s = "a"
         expected = 1
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
 
@@ -332,7 +353,7 @@ class test_prob3(unittest.TestCase):
         s = "abcdef"
         expected = 6
         try:
-            self.assertEqual(self.solution.lengthOfLongestSubstring(s), expected)
+            self.assertEqual(self.solutions.lengthOfLongestSubstring(s), expected)
         except NotImplementedError:
             self.skipTest("Solution not implemented")
             
@@ -340,14 +361,14 @@ class test_prob3(unittest.TestCase):
 # Unit test class for the solution
 class test_prob4(unittest.TestCase):
     def setUp(self):
-        self.solution = Solutions()
+        self.solutions = Solutions()
 
     def test_example1(self):
         nums1 = [1, 3]
         nums2 = [2]
         expected_output = 2.0
         try:
-            self.assertAlmostEqual(self.solution.findMedianSortedArrays(nums1, nums2), expected_output)
+            self.assertAlmostEqual(self.solutions.findMedianSortedArrays(nums1, nums2), expected_output)
         except NotImplementedError as e:
             self.skipTest(f"Test skipped: {e}")
 
@@ -356,7 +377,7 @@ class test_prob4(unittest.TestCase):
         nums2 = [3, 4]
         expected_output = 2.5
         try:
-            self.assertAlmostEqual(self.solution.findMedianSortedArrays(nums1, nums2), expected_output)
+            self.assertAlmostEqual(self.solutions.findMedianSortedArrays(nums1, nums2), expected_output)
         except NotImplementedError as e:
             self.skipTest(f"Test skipped: {e}")
 
@@ -366,7 +387,7 @@ class test_prob4(unittest.TestCase):
         nums2 = [1]
         expected_output = 1.0
         try:
-            self.assertAlmostEqual(self.solution.findMedianSortedArrays(nums1, nums2), expected_output)
+            self.assertAlmostEqual(self.solutions.findMedianSortedArrays(nums1, nums2), expected_output)
         except NotImplementedError as e:
             self.skipTest(f"Test skipped: {e}")
 
@@ -375,7 +396,7 @@ class test_prob4(unittest.TestCase):
         nums2 = [2, 3]
         expected_output = 2.5
         try:
-            self.assertAlmostEqual(self.solution.findMedianSortedArrays(nums1, nums2), expected_output)
+            self.assertAlmostEqual(self.solutions.findMedianSortedArrays(nums1, nums2), expected_output)
         except NotImplementedError as e:
             self.skipTest(f"Test skipped: {e}")
 
@@ -384,9 +405,92 @@ class test_prob4(unittest.TestCase):
         nums2 = [-2, 0, 2]
         expected_output = -1.5
         try:
-            self.assertAlmostEqual(self.solution.findMedianSortedArrays(nums1, nums2), expected_output)
+            self.assertAlmostEqual(self.solutions.findMedianSortedArrays(nums1, nums2), expected_output)
         except NotImplementedError as e:
             self.skipTest(f"Test skipped: {e}")
+            
+            
+class test_prob5(unittest.TestCase):
+    """
+    Test class for LeetCode problem 5: Longest Palindromic Substring.
+
+    Given a string `s`, return the longest palindromic substring in `s`.
+
+    Problem Constraints:
+    - The input string `s` has a length constraint: 1 <= s.length <= 1000.
+    - The string `s` consists only of digits and English letters (both lowercase and uppercase).
+    
+    The solution should efficiently find the longest palindromic substring within the given string.
+    
+    Examples:
+    
+    Example 1:
+    Input: s = "babad"
+    Output: "bab"
+    Explanation: "aba" is also a valid answer.
+    
+    Example 2:
+    Input: s = "cbbd"
+    Output: "bb"
+    
+    Constraints:
+    - 1 <= s.length <= 1000
+    - s consist of only digits and English letters.
+    """
+
+    def setUp(self):
+        self.solutions = Solutions()
+
+    def test_example1(self):
+        """Test case 1: s = 'babad' should return 'bab' or 'aba'."""
+        s = "babad"
+        expected = "bab"  # or "aba"
+        try:
+            result = self.solutions.longestPalindrome(s)
+            self.assertIn(result, ["bab", "aba"])  # Either "bab" or "aba" is correct.
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
+
+    def test_example2(self):
+        """Test case 2: s = 'cbbd' should return 'bb'."""
+        s = "cbbd"
+        expected = "bb"
+        try:
+            result = self.solutions.longestPalindrome(s)
+            self.assertEqual(result, expected)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
+
+    def test_single_character(self):
+        """Test case 3: A single character string should return the string itself."""
+        s = "a"
+        expected = "a"
+        try:
+            result = self.solutions.longestPalindrome(s)
+            self.assertEqual(result, expected)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
+
+    def test_palindrome_string(self):
+        """Test case 4: A string that is already a palindrome should return the entire string."""
+        s = "racecar"
+        expected = "racecar"
+        try:
+            result = self.solutions.longestPalindrome(s)
+            self.assertEqual(result, expected)
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
+
+    def test_no_palindrome(self):
+        """Test case 5: A string with no repeating characters should return any single character."""
+        s = "abcd"
+        try:
+            result = self.solutions.longestPalindrome(s)
+            self.assertIn(result, list(s))  # Any single character in the string is a valid palindrome.
+        except NotImplementedError as e:
+            self.skipTest(f"Not implemented: {e}")
         
 if __name__ == '__main__':
     unittest.main()
+
+
