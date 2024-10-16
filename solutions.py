@@ -25,7 +25,19 @@ class Solutions:
         - Each integer in `nums` is between -10^9 and 10^9.
         - There is exactly one valid solution for each input.
         """
-        raise NotImplementedError("subtract function not yet implemented")
+        #raise NotImplementedError("subtract function not yet implemented")//comment out to skipp
+        already_iterated = {}
+        for index, number in enumerate(nums):
+            current_difference = target - number
+            if current_difference in already_iterated:
+                return [already_iterated[current_difference], index]
+            already_iterated[number] = index 
+            """
+            Explanation: enumerate gets both the index and value iterating through an array. 
+            Get differnce and see if in a dictionary(already_iterated) which stores the value as the key and the index as the value. 
+            if difference in dictionary, the difference index and the index of current number is returned in an array
+            otherwise add the current number and index to the dictionary to be looked at from within the loop
+            """
     
     class ListNode:
         def __init__(self, val=0, next=None):
